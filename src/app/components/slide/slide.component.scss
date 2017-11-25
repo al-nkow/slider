@@ -1,0 +1,31 @@
+.img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(20% 20%, 75% 20%, 75% 75%, 20% 75%, 20% 60%, 65% 60%, 65% 35%, 30% 35%, 30% 60%, 20% 60%);
+    transition: all 0.3s linear;
+    //background: #f64a52 url(./../../../assets/images/woman1.png) 10% 10%;
+    background: #f64a52 url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png) 50% 0;
+    background-blend-mode: luminosity;
+}
+.clip-bg-wrap {
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.5));
+}
+.slide-wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid red;
+    height: 550px;
+    box-sizing: border-box;
+    background: #b295b1;
+    &:hover {
+        .img-box {
+            clip-path: polygon(75% 20%, 130% 20%, 130% 75%, 75% 75%, 75% 60%, 120% 60%, 120% 35%, 85% 35%, 85% 60%, 75% 60%);
+        }
+    }
+}
