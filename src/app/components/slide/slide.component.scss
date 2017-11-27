@@ -1,3 +1,26 @@
+@keyframes oscillate-reduce {
+    from { transform: scale(1) }
+    to { transform: scale(0.125)}
+}
+.shield {
+    animation: oscillate-reduce 3.2s ease-in-out 0s infinite alternate-reverse;
+    transform-origin: 125px 115px;
+}
+.button {
+    font: Arial;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid #d0792e;
+    border-radius: 4px;
+    background: #d0912d;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+
+
 .newblock {
     clip-path: url(#myClip);
     width: 100%;
@@ -12,35 +35,6 @@
     //}
     //transition: all 0.2s linear;
 }
-#myClip{
-    &:hover {
-        .frame {
-            animation-duration: 1s;
-            animation-iteration-count: infinite;
-            animation-name: buttonTransition;
-        }
-    }
-}
-.frame {
-    //animation-duration: 1s;
-    //animation-iteration-count: infinite;
-    //animation-name: buttonTransition;
-    &:hover {
-        //transform: scale(2,2);
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-name: buttonTransition;
-    }
-}
-@keyframes buttonTransition {
-    from {
-        r: 40;
-    }
-    to {
-        r: 75;
-    }
-}
-
 
 
 .img-box {
