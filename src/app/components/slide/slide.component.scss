@@ -20,16 +20,20 @@
     0% { transform: rotate(-15deg) skewX(-8deg) translateX(80%) translateY(20%)}
     100% { transform: rotate(0) skewX(0) translateX(0) translateY(0) }
 }
-//@keyframes melt-away {
-//    0% { transform: rotate(-15deg) skewX(-8deg) translateX(80%) translateY(20%)}
-//    100% { transform: rotate(0) skewX(0) translateX(0) translateY(0) }
-//}
+@keyframes melt-away {
+    0% { transform: rotate(0) skewX(0) translateX(0) translateY(0) }
+    100% { transform: rotate(15deg) skewX(8deg) translateX(-80%) translateY(-15%)}
+}
 
 .shield {
     animation: oscillate-reduce 1s ease-in-out;
 }
 .opaanim {
-    animation: img-opacity 1s ease-out;
+    animation: img-opacity 1s ease-in-out;
+}
+.melt {
+    animation: melt-away 0.5s ease-out;
+    transform: rotate(15deg) skewX(8deg) translateX(-80%) translateY(-15%);
 }
 
 .img-box {

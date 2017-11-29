@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'slide',
+    selector: 'app-slide',
     templateUrl: './slide.component.html',
     styleUrls: ['./slide.component.scss']
 })
@@ -15,11 +15,19 @@ export class SlideComponent implements OnInit {
     }
 
     clickBut() {
-        this.shield = !this.shield;
+        this.melt = false
+        this.shield = false;
+        setTimeout(() => {
+            this.shield = true;
+        }, 500);
     }
 
     clickBut2() {
-        this.melt = !this.melt;
+        this.shield = false;
+        this.melt = false;
+        setTimeout(() => {
+            this.melt = true;
+        }, 500);
     }
 
     ngOnInit() {
