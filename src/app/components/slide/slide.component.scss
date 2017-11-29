@@ -1,11 +1,3 @@
-@keyframes oscillate-reduce {
-    from { transform: scale(1) }
-    to { transform: scale(0.125)}
-}
-.shield {
-    animation: oscillate-reduce 3.2s ease-in-out 0s infinite alternate-reverse;
-    transform-origin: 125px 115px;
-}
 .button {
     font: Arial;
     padding: 5px;
@@ -18,36 +10,37 @@
     margin-bottom: 10px;
 }
 
+// ==================================================
+@keyframes img-opacity {
+    0% { opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+@keyframes oscillate-reduce {
+    0% { transform: rotate(-15deg) skewX(-8deg) translateX(80%) translateY(20%)}
+    100% { transform: rotate(0) skewX(0) translateX(0) translateY(0) }
+}
+//@keyframes melt-away {
+//    0% { transform: rotate(-15deg) skewX(-8deg) translateX(80%) translateY(20%)}
+//    100% { transform: rotate(0) skewX(0) translateX(0) translateY(0) }
+//}
 
-
-
-.newblock {
-    clip-path: url(#myClip);
-    width: 100%;
-    height: 600px;
-    border: 5px solid green;
-    background: url('https://images7.alphacoders.com/411/thumb-1920-411820.jpg');
-    //mask-image: url(http://www.clker.com/cliparts/l/X/Q/H/Y/s/purple-glossy-rectangle-button-hi.png);
-    //mask-repeat: no-repeat;
-    //mask-position: 10% 10%;
-    //&:hover {
-    //    mask-position: 30% 30%;
-    //}
-    //transition: all 0.2s linear;
+.shield {
+    animation: oscillate-reduce 1s ease-in-out;
+}
+.opaanim {
+    animation: img-opacity 1s ease-out;
 }
 
-
 .img-box {
-    opacity: 1;
+    clip-path: url(#frame-clip);
+    //opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    //clip-path: polygon(20% 20%, 75% 20%, 75% 75%, 20% 75%, 20% 60%, 65% 60%, 65% 35%, 30% 35%, 30% 60%, 20% 60%);
-    clip-path: polygon(
-        20% 20%, 50% 20%, 50% 80%, 20% 80%,
-        20% 75%, 47% 75%, 47% 25%, 23% 25%, 23% 75%, 20% 75%);
+    //clip-path: polygon(20% 20%, 50% 20%, 50% 80%, 20% 80%, 20% 75%, 47% 75%, 47% 25%, 23% 25%, 23% 75%, 20% 75%);
     transition: all 0.3s ease-out;
     //background: #f64a52 url(./../../../assets/images/woman1.png) 10% 10%;
     background: #f64a52 url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png) 50% 0;
@@ -65,36 +58,4 @@
     border: 1px solid red;
     box-sizing: border-box;
     background: #b295b1;
-    &:hover {
-        .img-box {
-            //opacity: 0;
-            // 50:20 80:20 80:80 50:80 50:75 77:75 77:25 53:25 53:75 50:75
-            //clip-path: polygon(
-            //    50% 20%, 80% 20%, 80% 80%, 50% 80%,
-            //    50% 75%, 77% 75%, 77% 25%, 53% 25%, 53% 75%, 50% 75%
-            //);
-            //clip-path: polygon(50% 20%,
-            //    78.190778623577% 9.7393957002299%,
-            //    98.711987223117% 66.120952947384%,
-            //    70.52120859954% 76.381557247155%,
-            //    68.811107882912% 71.683094143225%,
-            //    94.182808644131% 62.448550273432%,
-            //    77.081801477848% 15.463919234136%,
-            //    54.529178578986% 23.672402673953%,
-            //    71.63018574527% 70.657033713248%,
-            //    68.811107882912% 71.683094143225%);
-            // -9.73939570023
-            clip-path: polygon(50% 20%,
-                78.190778623577% 9.73939570023%,
-                98.711987223117% 66.120952947384%,
-                //70.52120859954% 76.381557247155%,
-                70.52120859954% 76.3815572471545%, // <-
-                68.811107882912% 71.683094143225%,
-                94.182808644131% 62.448550273432%,
-                77.081801477848% 15.463919234136%,
-                54.529178578986% 23.672402673953%,
-                71.63018574527% 70.657033713248%,
-                68.811107882912% 71.683094143225%);
-        }
-    }
 }

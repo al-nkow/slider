@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class SlideComponent implements OnInit {
 
     shield = false;
+    melt = false;
 
     constructor() {
 
@@ -15,7 +16,10 @@ export class SlideComponent implements OnInit {
 
     clickBut() {
         this.shield = !this.shield;
-        console.log('Hi!!!', this.shield);
+    }
+
+    clickBut2() {
+        this.melt = !this.melt;
     }
 
     ngOnInit() {
