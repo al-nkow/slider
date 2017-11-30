@@ -1,8 +1,12 @@
 <div class="new-wrap">
     <div class="button" (click)="clickBut()">animate block</div>
+    <div class="button" (click)="toggle = !toggle">FADE IN/OUT</div>
 
     <div [@visibilityChanged]="visibility">
         <div class="block"></div>
     </div>
+
+    <div class="fadeinoutblock" *ngIf="toggle" [@fadeInOut]>element1</div>
+    <div class="fadeinoutblock" *ngIf="toggle" [@fadeInOut]>element2</div>
 
 </div>
