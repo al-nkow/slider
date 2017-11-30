@@ -2,11 +2,19 @@
     <div class="button" (click)="clickBut()">animate block</div>
     <div class="button" (click)="toggle = !toggle">FADE IN/OUT</div>
 
+    <div class="button" (click)="showEl = 1">ELEMENT 1</div>
+    <div class="button" (click)="showEl = 2">ELEMENT 2</div>
+
     <div [@visibilityChanged]="visibility">
         <div class="block"></div>
     </div>
 
     <div class="fadeinoutblock" *ngIf="toggle" [@fadeInOut]>element1</div>
-    <div class="fadeinoutblock" *ngIf="toggle" [@fadeInOut]>element2</div>
+
+
+    <div class="blocks-wrap">
+        <div class="fadeinoutblock aps-pos" *ngIf="showEl === 1" [@fadeInOut]>element2</div>
+        <div class="fadeinoutblock aps-pos color2" *ngIf="showEl === 2" [@fadeInOut]>element3</div>
+    </div>
 
 </div>

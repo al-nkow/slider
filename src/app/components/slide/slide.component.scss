@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .button {
     font: Arial;
     padding: 5px;
@@ -10,7 +25,9 @@
     margin-bottom: 10px;
     user-select: none;
 }
-
+.buttons {
+    padding: 10px 0;
+}
 // ==================================================
 @keyframes img-opacity {
     0% { opacity: 0; }
@@ -48,7 +65,11 @@
     //clip-path: polygon(20% 20%, 50% 20%, 50% 80%, 20% 80%, 20% 75%, 47% 75%, 47% 25%, 23% 25%, 23% 75%, 20% 75%);
     transition: all 0.3s ease-out;
     //background: #f64a52 url(./../../../assets/images/woman1.png) 10% 10%;
-    background: #f64a52 url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png) 50% 0;
+
+    background-color: #f64a52;
+    //background-image: url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png);
+    background-position: 50% 0;
+    //background: #f64a52 url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png) 50% 0;
     background-blend-mode: luminosity;
 }
 .clip-bg-wrap {

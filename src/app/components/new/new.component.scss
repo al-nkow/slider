@@ -23,7 +23,16 @@
     background: #bf554f;
     border-radius: 10px;
 }
+.blocks-wrap {
+    margin: 10px;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+}
 .fadeinoutblock {
+    box-sizing: border-box;
     width: 200px;
     height: 100px;
     background: #e0aebd;
@@ -32,4 +41,13 @@
     color: #ffffff;
     font-family: 'Arial', sans-serif;
     margin: 10px;
+    &.aps-pos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+    &.color2 {
+        background: #8ba6e0;
+    }
 }

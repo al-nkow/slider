@@ -6,6 +6,41 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
     templateUrl: './slide.component.html',
     styleUrls: ['./slide.component.scss'],
     animations: [
+
+
+        trigger('clip-frame', [
+            transition(':enter', [   // :enter is alias to 'void => *'
+                style({ transform: 'translateX(20%)' }),
+                animate(1000, style({
+                    transform: 'translateX(0)'
+                }))
+            ]),
+            transition(':leave', [   // :leave is alias to '* => void'
+                animate(1000, style({
+                    transform: 'translateX(-20%)'
+                }))
+            ])
+        ]),
+        trigger('fader', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate(1000, style({
+                    opacity: 1
+                }))
+            ]),
+            transition(':leave', [
+                style({ opacity: 1 }),
+                animate(1000, style({
+                    opacity: 0,
+                }))
+            ])
+        ]),
+
+
+
+
+
+
         trigger('visibilityChanged', [
             state('shown' , style({ transform: 'scale(1) translateX(0)' })), // можно state('true')
             state('hidden', style({ transform: 'scale(0.5) translateX(250%)' })),
@@ -21,8 +56,15 @@ export class SlideComponent implements OnInit {
     melt = false;
     showBlock = true;
     visibility = 'shown';
-
+    currentSlide = 0;
+    urlimg = 'https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png';
     myels = [];
+
+    slides = [{
+        frameImgUrl: 'https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png'
+    }, {
+        frameImgUrl: 'https://i.pinimg.com/originals/07/67/3c/07673c4f587a2c85304055ceceb52e77.png'
+    }];
 
     constructor() {
 

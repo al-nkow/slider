@@ -5,27 +5,45 @@
 <div class="button" (click)="clickBut4()">SHOW/HIDE</div>
 
 <div class="slide-wrap">
-    <svg class="rect-clip" width="0" height="0">
-        <defs>
-            <clipPath id="frame-clip" clipPathUnits="objectBoundingBox">
-                <!-- Чтобы указать точки в процентах - надо добавить аттрибуты в svg w,h=0, clipPath и координаты разделить на 100 -->
-                <polygon [@visibilityChanged]="visibility" [class.shield]="shield" [class.melt]="melt" points="0.2,0.2 0.5,0.2 0.5,0.8 0.2,0.8 0.2,0.75 0.47,0.75 0.47,0.25 0.23,0.25 0.23,0.75 0.2,0.75"></polygon>
-            </clipPath>
-        </defs>
-    </svg>
-    <div class="clip-bg-wrap">
-        <div class="img-box" [class.opaanim]="showBlock"></div>
-    </div>
-</div>
-<!--<div [@aniblock]="stateName()">&lt;!&ndash; return show or hide &ndash;&gt;-->
-<!--<div-->
-    <!--*ngIf="showBlock"-->
-    <!--style="width: 100px; height: 100px; background: #bf554f; border-radius: 10px;"-->
-<!--&gt;</div>-- >
-<!--</div>-->
 
-<!--<div [@name-of-animation]="myels.length">-->
-    <!--<div *ngFor="let el of myels">-->
-        <!--<span style="border: 1px solid red; padding: 10px;">{{ el.name }}</span>-->
-    <!--</div>-->
-<!--</div>-->
+    <div class="slide">
+        <svg class="rect-clip" width="0" height="0">
+            <defs>
+                <clipPath id="frame-clip" clipPathUnits="objectBoundingBox">
+                    <!-- Чтобы указать точки в процентах - надо добавить аттрибуты в svg w,h=0, clipPath и координаты разделить на 100 -->
+                    <polygon
+                        *ngIf="currentSlide === 0"
+                        [@clip-frame]
+                        [class.shield]="shield"
+                        [class.melt]="melt"
+                        points="0.2,0.2 0.5,0.2 0.5,0.8 0.2,0.8 0.2,0.75 0.47,0.75 0.47,0.25 0.23,0.25 0.23,0.75 0.2,0.75"
+                    ></polygon>
+                    <polygon
+                        *ngIf="currentSlide === 1"
+                        [@clip-frame]
+                        [class.shield]="shield"
+                        [class.melt]="melt"
+                        points="0.2,0.2 0.5,0.2 0.5,0.8 0.2,0.8 0.2,0.75 0.47,0.75 0.47,0.25 0.23,0.25 0.23,0.75 0.2,0.75"
+                    ></polygon>
+                </clipPath>
+            </defs>
+        </svg>
+        <div class="clip-bg-wrap">
+            <!-- slides -->
+            <ng-container *ngFor="let img of slides; let i = index">
+                <div
+                    class="img-box"
+                    [@fader]
+                    *ngIf="currentSlide === i"
+                    [ngStyle]="{'background-image': 'url(' + img.frameImgUrl + ')'}"
+                ></div>
+            </ng-container>
+        </div>
+    </div>
+
+
+</div>
+<div class="buttons">
+    <div class="button" (click)="currentSlide = 0">slide 1</div>
+    <div class="button" (click)="currentSlide = 1">slide 2</div>
+</div>

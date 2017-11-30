@@ -17,7 +17,7 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
             transition(':leave', [   // :leave is alias to '* => void'
                 animate(500, style({
                     opacity: 0,
-                    transform: 'scale(0.1) translateX(-300px)'
+                    transform: 'scale(0.1) translateX(300px)'
                 }))
             ])
         ]),
@@ -35,6 +35,7 @@ export class NewComponent implements OnInit {
     showBlock = true;
     visibility = 'shown';
     toggle = true;
+    showEl = 1;
 
     constructor() {
     }
