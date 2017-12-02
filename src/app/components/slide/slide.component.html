@@ -57,20 +57,20 @@
             {{ currentSlide.lastName }}
         </div>
 
-    </div>
+        <div class="but-block">
+            <div
+                *ngFor="let item of slides; index as i; last as l;"
+                class="but"
+                (click)="changeSlide(i)"
+                [class.last]="l"
+            >
+                <div class="active-bg pos-full"></div>
+                <div class="selected pos-full" [class.active]="i === currentSlide.ind"></div>
+                <div class="but-label pos-full">{{ item.firstName + ' ' + item.lastName }}</div>
+            </div>
+        </div>
 
-</div>
+    </div><!-- eof .slide -->
 
+</div><!-- eof.slide-wrap -->
 
-
-
-
-
-
-<div class="buttons">
-    <div
-        *ngFor="let item of slides; index as i;"
-        class="button mr-5"
-        (click)="changeSlide(i)"
-    >slide {{ i + 1 }}</div>
-</div>

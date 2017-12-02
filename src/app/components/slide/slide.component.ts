@@ -30,10 +30,11 @@ export class SlideComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {
-        this.changeSlide(0);
+        this.changeSlide(0, true);
     }
 
-    changeSlide(i:number) {
+    changeSlide(i:number, init:boolean) {
+        if ((i === this.currentSlide.ind) && !init) return false;
         this.prevColor = this.currentSlide.bgColor;
         this.underColor = i === this.slides.length ? this.slides[0].bgColor : this.slides[i].bgColor;
         this.currentSlide = this.slides[i];
@@ -41,7 +42,7 @@ export class SlideComponent implements OnInit {
         setTimeout(() => {
             this.animateSlide = true;
             this.prevColor = this.underColor;
-        }, 600)
+        }, 500)
     }
 
 }
