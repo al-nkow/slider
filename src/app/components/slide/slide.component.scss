@@ -1,23 +1,57 @@
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.crop-photo {
+    background-size: auto 100%;
+    background-position: center;
+    position: absolute;
+    top: -10%;
+    left: 10%;
+    width: 40%;
+    height: 140%;
+    box-sizing: border-box;
+    background-blend-mode: luminosity;
+}
+.foots {
+    background-size: auto 100%;
+    background-position: center;
+    position: absolute;
+    top: -10%;
+    left: 10%;
+    width: 40%;
+    height: 127.7%;
+    box-sizing: border-box;
+    background-blend-mode: luminosity
+}
+.name {
+    &_first {
+        top: 43%;
+        left: 43%;
+    }
+    &_last {
+        top: 58%;
+        left: 47%;
+    }
+    position: absolute;
+    color: #ffffff;
+    font-size: 66px;
+    font-family: NarzissTextHeavy, Helvetica, sans-serif;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+.mr-5 {
+    margin-right: 5px;
+}
 .button {
     font: Arial;
     padding: 5px;
     display: inline-block;
-    border: 1px solid #d0792e;
     border-radius: 4px;
     background: #d0912d;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
@@ -42,34 +76,15 @@
     0% { transform: rotate(0) skewX(0) translateX(0) translateY(0) }
     100% { transform: rotate(15deg) skewX(8deg) translateX(-80%) translateY(-15%)}
 }
-
-.shield {
-    animation: oscillate-reduce 1s ease-in-out;
-}
-.opaanim {
-    animation: img-opacity 1s ease-in-out;
-}
-.melt {
-    animation: melt-away 0.5s ease-out;
-    transform: rotate(15deg) skewX(8deg) translateX(-80%) translateY(-15%);
-}
-
 .img-box {
     clip-path: url(#frame-clip);
-    //opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    //clip-path: polygon(20% 20%, 50% 20%, 50% 80%, 20% 80%, 20% 75%, 47% 75%, 47% 25%, 23% 25%, 23% 75%, 20% 75%);
-    transition: all 0.3s ease-out;
-    //background: #f64a52 url(./../../../assets/images/woman1.png) 10% 10%;
-
-    background-color: #f64a52;
-    //background-image: url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png);
-    background-position: 50% 0;
-    //background: #f64a52 url(https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png) 50% 0;
+    background-position: 50% -5%;
+    background-size: 140% auto;
     background-blend-mode: luminosity;
 }
 .clip-bg-wrap {
@@ -79,9 +94,16 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    padding-top: 61.25%; //56.25 (9:16)
+    padding-top: 61.25%;
     margin: 0 auto;
-    border: 1px solid red;
     box-sizing: border-box;
-    background: #b295b1;
+}
+.slide {
+    overflow: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
 }

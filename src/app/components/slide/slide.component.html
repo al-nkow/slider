@@ -1,12 +1,30 @@
-<div class="button" (click)="clickBut()">click me</div>
-<div class="button" (click)="clickBut2()">click me 2</div>
-<div class="button" (click)="clickBut3()">click me 3</div>
-
-<div class="button" (click)="clickBut4()">SHOW/HIDE</div>
-
 <div class="slide-wrap">
+    <div
+        *ngIf="animateSlide"
+        [@fader]
+        [ngStyle]="{'background-image': 'url(' + currentSlide.frameImgUrl + ')'}"
+        class="foots"
+    ></div>
 
     <div class="slide">
+
+        <div class="back" [ngStyle]="{'background-color': underColor}"></div>
+        <div
+            [@shrink-box]="underColor !== prevColor ? 'hidden' : 'shown'"
+            class="back back_under"
+            [ngStyle]="{'background-color': prevColor}"
+        ></div>
+
+        <div class="crop-photo"
+             [@fader-fast]
+             *ngIf="animateSlide"
+             [ngStyle]="{
+                'background-image': 'url(' + currentSlide.frameImgUrl + ')',
+                'background-color': currentSlide.bgColor
+             }"
+        >
+        </div>
+
         <svg class="rect-clip" width="0" height="0">
             <defs>
                 <clipPath id="frame-clip" clipPathUnits="objectBoundingBox">
@@ -14,9 +32,8 @@
                     <polygon
                         *ngIf="animateSlide"
                         [@clip-frame]
-                        [class.shield]="shield"
-                        [class.melt]="melt"
-                        points="0.2,0.2 0.5,0.2 0.5,0.8 0.2,0.8 0.2,0.75 0.47,0.75 0.47,0.25 0.23,0.25 0.23,0.75 0.2,0.75"
+                        points="0.2,0.2 0.5,0.2 0.5,0.8 0.2,0.8 0.2,0.75
+                        0.47,0.75 0.47,0.25 0.23,0.25 0.23,0.75 0.2,0.75"
                     ></polygon>
                 </clipPath>
             </defs>
@@ -26,14 +43,34 @@
                 class="img-box"
                 [@fader]
                 *ngIf="animateSlide"
-                [ngStyle]="{'background-image': 'url(' + currentSlide.frameImgUrl + ')'}"
+                [ngStyle]="{
+                    'background-image': 'url(' + currentSlide.frameImgUrl + ')',
+                    'background-color': currentSlide.bgColor
+                }"
             ></div>
         </div>
+
+        <div [@collapse] *ngIf="animateSlide" class="name name_first">
+            {{ currentSlide.firstName }}
+        </div>
+        <div [@collapse] *ngIf="animateSlide" class="name name_last">
+            {{ currentSlide.lastName }}
+        </div>
+
     </div>
 
-
 </div>
+
+
+
+
+
+
+
 <div class="buttons">
-    <div class="button" (click)="changeSlide(0)">slide 1</div>
-    <div class="button" (click)="changeSlide(1)">slide 2</div>
+    <div
+        *ngFor="let item of slides; index as i;"
+        class="button mr-5"
+        (click)="changeSlide(i)"
+    >slide {{ i + 1 }}</div>
 </div>

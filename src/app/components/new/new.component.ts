@@ -27,6 +27,13 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
             // transition('* => *', animate('.5s')),
             transition('shown => hidden', animate('1200ms')),
             transition('hidden => shown', animate('600ms')),
+        ]),
+        trigger('wh-anim', [
+            state('shown' , style({ width: '100%' })), // можно state('true')
+            state('hidden', style({ width: '0%' })),
+            // transition('* => *', animate('.5s')),
+            transition('shown => hidden', animate('1200ms')),
+            transition('hidden => shown', animate('0ms')),
         ])
     ],
 })
@@ -36,6 +43,8 @@ export class NewComponent implements OnInit {
     visibility = 'shown';
     toggle = true;
     showEl = 1;
+    her = true;
+
 
     constructor() {
     }
