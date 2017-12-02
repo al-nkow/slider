@@ -12,14 +12,7 @@
                 <clipPath id="frame-clip" clipPathUnits="objectBoundingBox">
                     <!-- Чтобы указать точки в процентах - надо добавить аттрибуты в svg w,h=0, clipPath и координаты разделить на 100 -->
                     <polygon
-                        *ngIf="currentSlide === 0"
-                        [@clip-frame]
-                        [class.shield]="shield"
-                        [class.melt]="melt"
-                        points="0.2,0.2 0.5,0.2 0.5,0.8 0.2,0.8 0.2,0.75 0.47,0.75 0.47,0.25 0.23,0.25 0.23,0.75 0.2,0.75"
-                    ></polygon>
-                    <polygon
-                        *ngIf="currentSlide === 1"
+                        *ngIf="animateSlide"
                         [@clip-frame]
                         [class.shield]="shield"
                         [class.melt]="melt"
@@ -29,21 +22,18 @@
             </defs>
         </svg>
         <div class="clip-bg-wrap">
-            <!-- slides -->
-            <ng-container *ngFor="let img of slides; let i = index">
-                <div
-                    class="img-box"
-                    [@fader]
-                    *ngIf="currentSlide === i"
-                    [ngStyle]="{'background-image': 'url(' + img.frameImgUrl + ')'}"
-                ></div>
-            </ng-container>
+            <div
+                class="img-box"
+                [@fader]
+                *ngIf="animateSlide"
+                [ngStyle]="{'background-image': 'url(' + currentSlide.frameImgUrl + ')'}"
+            ></div>
         </div>
     </div>
 
 
 </div>
 <div class="buttons">
-    <div class="button" (click)="currentSlide = 0">slide 1</div>
-    <div class="button" (click)="currentSlide = 1">slide 2</div>
+    <div class="button" (click)="changeSlide(0)">slide 1</div>
+    <div class="button" (click)="changeSlide(1)">slide 2</div>
 </div>

@@ -10,27 +10,27 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
 
         trigger('clip-frame', [
             transition(':enter', [   // :enter is alias to 'void => *'
-                style({ transform: 'translateX(20%)' }),
-                animate(1000, style({
-                    transform: 'translateX(0)'
+                style({ transform: 'rotate(-15deg) skewX(-8deg) translateX(80%) translateY(20%)' }),
+                animate(400, style({
+                    transform: 'rotate(0) skewX(0) translateX(0) translateY(0)'
                 }))
             ]),
             transition(':leave', [   // :leave is alias to '* => void'
-                animate(1000, style({
-                    transform: 'translateX(-20%)'
+                animate(400, style({
+                    transform: 'rotate(15deg) skewX(8deg) translateX(-80%) translateY(-10%)'
                 }))
             ])
         ]),
         trigger('fader', [
             transition(':enter', [
                 style({ opacity: 0 }),
-                animate(1000, style({
+                animate(400, style({
                     opacity: 1
                 }))
             ]),
             transition(':leave', [
                 style({ opacity: 1 }),
-                animate(1000, style({
+                animate(400, style({
                     opacity: 0,
                 }))
             ])
@@ -52,19 +52,24 @@ import { trigger, style, transition, animate, keyframes, query, stagger, state }
 })
 export class SlideComponent implements OnInit {
 
+    animateSlide = true;
+
     shield = false;
     melt = false;
     showBlock = true;
     visibility = 'shown';
-    currentSlide = 0;
-    urlimg = 'https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png';
-    myels = [];
-
     slides = [{
         frameImgUrl: 'https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png'
     }, {
         frameImgUrl: 'https://i.pinimg.com/originals/07/67/3c/07673c4f587a2c85304055ceceb52e77.png'
     }];
+    currentSlide = this.slides[0];
+
+
+
+    urlimg = 'https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png';
+    myels = [];
+
 
     constructor() {
 
@@ -102,6 +107,14 @@ export class SlideComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+
+    changeSlide(i) {
+        this.currentSlide = this.slides[i];
+        this.animateSlide = false;
+        setTimeout(() => {
+            this.animateSlide = true;
+        }, 600)
     }
 
 }
