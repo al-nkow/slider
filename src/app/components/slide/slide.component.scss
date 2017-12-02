@@ -31,16 +31,30 @@
     &_first {
         top: 43%;
         left: 43%;
+        @media (max-width: 800px) {
+            top: 41%;
+            left: 41%;
+        }
     }
     &_last {
-        top: 58%;
+        top: 56%;
         left: 47%;
+        @media (max-width: 800px) {
+            top: 55%;
+            left: 44%;
+        }
     }
     position: absolute;
     color: #ffffff;
     font-size: 66px;
     font-family: NarzissTextHeavy, Helvetica, sans-serif;
     text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    @media (max-width: 800px) {
+        font-size: 58px;
+    }
+    @media (max-width: 680px) {
+        font-size: 52px;
+    }
 }
 .img-box {
     clip-path: url(#frame-clip);
@@ -99,6 +113,9 @@
     &.last {
         border: none;
     }
+    @media (max-width: 680px) {
+        height: 36px;
+    }
 }
 .pos-full {
     position: absolute;
@@ -116,6 +133,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 680px) {
+        font-size: 12px;
+    }
 }
 .active-bg {
     transition: all 0.2s ease-in-out;

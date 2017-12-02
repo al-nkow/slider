@@ -18,5 +18,8 @@
     margin: 0 auto;
     max-width: 800px; // для ноутбука 800, экран 1000
     box-sizing: border-box;
+    @media (max-width: 800px) {
+        padding: 10px;
+    }
 }
 

@@ -45,7 +45,6 @@ export class NewComponent implements OnInit {
     showEl = 1;
     her = true;
 
-
     constructor() {
     }
 

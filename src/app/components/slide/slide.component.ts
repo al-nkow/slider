@@ -9,23 +9,29 @@ import { ANIM_ARR } from './slide.animations';
 })
 export class SlideComponent implements OnInit {
 
-    animateSlide = true;
-    slides = [{
+    public animateSlide = true;
+    public slides = [{
         ind: 0,
         firstName: 'Cynthia',
         lastName: 'Rothrock',
         bgColor: '#f64a52',
-        frameImgUrl: 'https://i.pinimg.com/originals/22/7f/3f/227f3f42f785a7cc140ee3ae8bdaf43f.png'
+        frameImgUrl: './../assets/images/woman1.png',
     }, {
         ind: 1,
         firstName: 'Jozefien',
         lastName: 'Shadya',
         bgColor: '#5e87e0',
-        frameImgUrl: 'https://i.pinimg.com/originals/07/67/3c/07673c4f587a2c85304055ceceb52e77.png'
+        frameImgUrl: './../assets/images/woman2.png',
+    }, {
+        ind: 2,
+        firstName: 'Aaminah',
+        lastName: 'Gamila',
+        bgColor: '#5fe09a',
+        frameImgUrl: './../assets/images/woman3.png',
     }];
-    underColor = '';
-    prevColor = '';
-    currentSlide = this.slides[0];
+    public underColor = '';
+    public prevColor = '';
+    public currentSlide = this.slides[0];
 
     constructor() {}
 
@@ -33,7 +39,7 @@ export class SlideComponent implements OnInit {
         this.changeSlide(0, true);
     }
 
-    changeSlide(i:number, init:boolean) {
+    public changeSlide(i:number, init:boolean) {
         if ((i === this.currentSlide.ind) && !init) return false;
         this.prevColor = this.currentSlide.bgColor;
         this.underColor = i === this.slides.length ? this.slides[0].bgColor : this.slides[i].bgColor;
